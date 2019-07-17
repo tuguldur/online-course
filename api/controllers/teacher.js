@@ -1,5 +1,5 @@
 const bcrypt = require("bcryptjs");
-const User = require("../models/user");
+const Teacher = require("../models/teacher");
 
 const config = require("config");
 const jwt = require("jsonwebtoken");
@@ -9,9 +9,10 @@ exports.create = function(req, res) {
   if (!name || !email || !password) {
     return res.status(400).json({ msg: "Please enter all fields" });
   }
-  User.findOne({ email }).then(user => {
-    if (user) return res.status(400).json({ msg: "User already exists" });
-    User.create({ name, email, password }, err => {
+  Teacher.findOne({ email }).then(teacher => {
+    if (teacher)
+      return res.status(400).json({ msg: "Email is already registered." });
+    Teacher.create({ name, email, password }, err => {
       if (err) throw err;
       res.json({ msg: "Welcome!" });
     });
@@ -24,13 +25,13 @@ exports.login = function(req, res) {
     return res.status(400).json({ msg: "Please enter all fields" });
   }
   // find by email
-  User.findOne({ email }).then(user => {
-    if (!user) return res.status(400).json({ msg: "Email does not exist." });
-    bcrypt.compare(password, user.password).then(isMatch => {
+  Teacher.findOne({ email }).then(teacher => {
+    if (!teacher) return res.status(400).json({ msg: "Email does not exist." });
+    bcrypt.compare(password, teacher.password).then(isMatch => {
       if (!isMatch)
         return res.status(400).json({ msg: "Password does not match." });
       jwt.sign(
-        { id: user.id },
+        { id: teacher.id },
         config.get("jwtSecret"),
         {
           expiresIn: 3600 //3600 seconds
@@ -39,7 +40,11 @@ exports.login = function(req, res) {
           if (err) throw err;
           res.json({
             token,
-            user: { id: user.id, name: user.name, email: user.email }
+            teacher: {
+              id: teacher.id,
+              name: teacher.name,
+              email: teacher.email
+            }
           });
         }
       );

@@ -6,6 +6,6 @@ router.get("/", function(req, res) {
 });
 
 router.use("/register", require("./register"));
-router.use("/login", require("./login.js"));
+router.use("/auth", require("./auth.js"));
 
 module.exports = router;

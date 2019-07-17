@@ -34,10 +34,10 @@ const teacherSchema = new Schema({
     default: new Date()
   }
 });
-// hash user password before saving into database
+// hash teacher password before saving into database
 teacherSchema.pre("save", function(next) {
   this.password = bcrypt.hashSync(this.password, 10);
   next();
 });
-const user = mongoose.model("teacher", userSchema);
-module.exports = user;
+const teacher = mongoose.model("teacher", teacherSchema);
+module.exports = teacher;
