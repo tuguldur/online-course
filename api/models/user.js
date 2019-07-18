@@ -3,7 +3,7 @@ const bcrypt = require("bcryptjs");
 
 const Schema = mongoose.Schema;
 const userSchema = new Schema({
-  name: {
+  username: {
     type: String,
     required: true
   },
@@ -33,6 +33,7 @@ const userSchema = new Schema({
 // hash user password before saving into database
 userSchema.pre("save", function(next) {
   this.password = bcrypt.hashSync(this.password, 10);
+  this.email = this.email.trim();
   next();
 });
 const user = mongoose.model("user", userSchema);
