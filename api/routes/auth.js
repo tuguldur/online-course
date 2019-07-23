@@ -1,7 +1,8 @@
 const express = require("express");
 const router = express.Router();
 const user = require("../controllers/user");
-const teacher = require("../controllers/teacher");
+// middleware
+const auth = require("../middlewares/auth");
 /**
  * /api/auth:
  *   post:
@@ -11,6 +12,6 @@ const teacher = require("../controllers/teacher");
  */
 
 router.post("/", user.login);
-router.post("/teacher", teacher.login);
+router.get("/", auth, user.profile);
 
 module.exports = router;

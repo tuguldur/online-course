@@ -64,10 +64,22 @@ exports.login = function(req, res) {
           if (err) throw err;
           res.json({
             token,
-            user: { id: user.id, name: user.name, email: user.email }
+            user: { id: user.id, username: user.username, email: user.email }
           });
         }
       );
     });
+  });
+};
+exports.profile = function(req, res) {
+  const token = req.header("x-auth-token");
+  jwt.verify(token, config.get("jwtSecret"), function(err, user) {
+    if (user) {
+      User.findById(user.id).then(user => {
+        res.json({ user });
+      });
+    } else {
+      res.json({ err });
+    }
   });
 };
