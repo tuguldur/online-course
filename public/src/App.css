@@ -1,0 +1,47 @@
+@font-face {
+  font-family: Whitney;
+  font-weight: 300;
+  src: url("./assets/6c6374bad0b0b6d204d8d6dc4a18d820.woff") format("woff");
+}
+@font-face {
+  font-family: Whitney;
+  font-weight: 400;
+  src: url("./assets/e8acd7d9bf6207f99350ca9f9e23b168.woff") format("woff");
+}
+@font-face {
+  font-family: Whitney;
+  font-weight: 500;
+  src: url("./assets/3bdef1251a424500c1b3a78dea9b7e57.woff") format("woff");
+}
+@font-face {
+  font-family: Whitney;
+  font-weight: 600;
+  src: url("./assets/be0060dafb7a0e31d2a1ca17c0708636.woff") format("woff");
+}
+@font-face {
+  font-family: Whitney;
+  font-weight: 700;
+  src: url("./assets/8e12fb4f14d9c4592eb8ec9f22337b04.woff") format("woff");
+}
+
+.font-white {
+  color: #fff;
+}
+.h5 {
+  font-family: Whitney, Helvetica Neue, Helvetica, Arial, sans-serif;
+}
+.btn {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  box-sizing: border-box;
+  background: none;
+  border: none;
+  border-radius: 3px;
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 16px;
+  padding: 2px 16px;
+  user-select: none;
+}

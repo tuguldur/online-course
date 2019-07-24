@@ -1,0 +1,190 @@
+@import "../../assets/mixins";
+.dev-nav {
+  background: #fff;
+  box-shadow: 0 0 1px 1px rgba(20, 23, 28, 0.1),
+    0 3px 1px 0 rgba(20, 23, 28, 0.1);
+  display: block;
+  position: relative;
+  z-index: 1010;
+  color: #5f6368;
+}
+#drawer-button {
+  @include md {
+    display: none;
+  }
+}
+#header {
+  @include md {
+    .mdc-top-app-bar__title {
+      padding-left: 12px;
+    }
+  }
+  @include sm-e-max {
+    .mdc-top-app-bar__row {
+      height: 64px;
+    }
+  }
+}
+.mdc-top-app-bar__section--align-end {
+  padding-right: 12px;
+}
+.nav-section-container {
+  padding: 8px;
+  display: flex;
+  width: 100%;
+  .section-start {
+    padding-right: 30px;
+    box-sizing: border-box;
+    flex: 1 0 auto;
+    @media (max-width: 1200px) {
+      min-width: 0px;
+    }
+    min-width: 238px;
+  }
+  .section-middle {
+    justify-content: flex-end;
+    flex: 1 1 100%;
+  }
+  .section-end {
+    padding: 0 4px;
+    padding-left: 30px;
+    flex: 0 0 auto;
+    justify-content: flex-end;
+    @include sm-max {
+      padding-left: 0;
+    }
+  }
+}
+
+.nav-section {
+  height: 48px;
+  vertical-align: middle;
+  white-space: nowrap;
+  align-items: center;
+  display: flex;
+  -webkit-user-select: none;
+}
+// search
+#search-trigger {
+  display: none;
+  @media (max-width: 1064px) {
+    display: initial;
+  }
+}
+.search-container {
+  flex: 1 1 auto;
+  max-width: 100%;
+
+  padding-left: 10px;
+  padding-right: 10px;
+  width: 100%;
+
+  height: 48px;
+  @media (max-width: 1064px) {
+    display: none;
+    &.show,
+    &.has-text {
+      z-index: 2;
+      width: 100%;
+      position: absolute;
+      display: flex;
+      right: 0;
+      .search {
+        max-width: 100%;
+        width: 100%;
+        margin-left: 20px;
+      }
+    }
+  }
+  .search {
+    margin-left: 0;
+    margin-right: 0;
+    background: #f1f3f4;
+    border: 1px solid transparent;
+    border-radius: 8px;
+    max-width: 720px;
+    position: relative;
+    transition: background 100ms ease-in, width 100ms ease-out;
+    display: flex;
+    .search-button {
+      display: flex;
+      padding: 4px;
+      margin: 0 5px;
+    }
+    button.mdc-icon-button {
+      max-width: 40px;
+      max-height: 40px;
+      padding: 8px;
+    }
+    &.focused {
+      outline: 0;
+      background: rgba(255, 255, 255, 1);
+      border: 1px solid transparent;
+      box-shadow: 0 1px 1px 0 rgba(65, 69, 73, 0.3),
+        0 1px 3px 1px rgba(65, 69, 73, 0.15);
+    }
+  }
+  #search {
+    height: 46px;
+    padding: 0;
+    // margin: 0 56px;
+    overflow: hidden;
+    width: 100%;
+    position: relative;
+  }
+}
+.search-r {
+  padding: 9px 0;
+  vertical-align: middle;
+}
+.searh-input {
+  height: 28px;
+  width: 100%;
+  border: none;
+  padding: 0px;
+  margin: 0px;
+  background: transparent;
+  z-index: 6;
+  font: normal 16px Google Sans, Roboto, RobotoDraft, Helvetica, Arial,
+    sans-serif;
+  font-variant-ligatures: none;
+  &:focus {
+    outline: none;
+  }
+}
+// avatar
+.avatar-container {
+  flex: 0 1 auto;
+  padding: 4px 2px;
+}
+.avatar-image {
+  flex: 0 1 auto;
+}
+.avatar {
+  padding: 4px;
+  span {
+    background-size: 32px 32px;
+    border-radius: 50%;
+    display: block;
+    margin: 0;
+    overflow: hidden;
+    position: relative;
+    height: 32px;
+    width: 32px;
+    z-index: 0;
+  }
+  &:hover {
+    background-color: rgba(60, 64, 67, 0.08);
+    border-radius: 50%;
+    cursor: pointer;
+  }
+}
+.user-button {
+  padding: 6px 0;
+  color: #000;
+}
+.mdc-top-app-bar__title {
+  @include sm-max {
+    display: none;
+  }
+}

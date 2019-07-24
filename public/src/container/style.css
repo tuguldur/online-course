@@ -1,0 +1,239 @@
+.left-split {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+
+  font-family: Whitney, Helvetica Neue, Helvetica, Arial, sans-serif;
+}
+@media (min-width: 486px) {
+  .left-split {
+    min-height: 750px;
+    width: 100%;
+    height: 100%;
+    max-width: 1080px;
+    max-height: 1000px;
+    min-height: 650px;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+}
+@media (min-width: 1080px) {
+  .left-split {
+    min-height: 700px;
+    width: 80%;
+    height: 100%;
+    overflow: hidden;
+  }
+}
+@media (min-width: 486px) {
+  #form-container {
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    width: auto;
+    height: auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+}
+@media (min-width: 1080px) {
+  #form-container {
+    justify-content: flex-end;
+    right: 150px;
+  }
+}
+@media (max-width: 485px) {
+  #form-container {
+    width: 100%;
+    height: 100%;
+  }
+}
+.form-auth {
+  width: 480px;
+  padding: 40px;
+  font-size: 18px;
+  color: #72767d;
+  background: #36393f;
+  box-shadow: 0 2px 10px 0 rgba(0, 0, 0, 0.2);
+  border-radius: 5px;
+  box-sizing: border-box;
+}
+@media (max-width: 485px) {
+  .form-auth {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    padding: 70px 40px 40px;
+    width: 100%;
+    height: 100%;
+    min-height: 500px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    background: linear-gradient(to left bottom, #3d4046, #1e1e23);
+    border-radius: 0;
+  }
+}
+.form-center {
+  width: 100%;
+  text-align: center;
+}
+.form-title {
+  font-size: 26px;
+  line-height: 32px;
+  font-weight: 300;
+}
+/* input */
+.form-input {
+  width: 100%;
+  text-align: left;
+}
+.mt-20 {
+  margin-top: 20px;
+}
+.mb-20 {
+  margin-bottom: 20px;
+}
+.mt-8 {
+  margin-top: 8px;
+}
+.mb-8 {
+  margin-bottom: 8px;
+}
+.mt-4 {
+  margin-top: 4px;
+}
+.input-title {
+  color: #b9bbbe;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+  flex: 1;
+  cursor: default;
+  margin-bottom: 8px;
+  line-height: 16px;
+  font-size: 12px;
+  font-weight: 600;
+}
+.error .input-title {
+  color: #f04747;
+}
+/* input wrapper*/
+
+.input-wrapper {
+  flex-direction: column;
+  display: flex;
+}
+
+.dark-input {
+  color: #f6f6f7;
+  background-color: rgba(0, 0, 0, 0.1);
+  border-color: rgba(0, 0, 0, 0.3);
+  padding: 10px;
+  height: 40px;
+  box-sizing: border-box;
+  width: 100%;
+  border-width: 1px;
+  border-style: solid;
+  border-radius: 3px;
+  transition: background-color 0.15s ease, border 0.15s ease;
+  font-size: 16px;
+}
+.dark-input:hover {
+  border-color: #040405;
+}
+
+.dark-input:focus {
+  border-color: #7289da;
+}
+.error .dark-input,
+.error .dark-input:hover,
+.error .dark-input:focus {
+  border-color: #f04747;
+}
+/* Button */
+.button-text {
+  margin: 0 auto;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  overflow: hidden;
+}
+.form-button {
+  color: #fff;
+  background-color: #7289da;
+  font-size: 16px;
+  line-height: 24px;
+  width: 100%;
+  height: 44px;
+  min-width: 130px;
+  min-height: 44px;
+  transition: background-color 0.17s ease, color 0.17s ease;
+  position: relative;
+}
+.form-button:hover {
+  background-color: #677bc4;
+}
+.form-button:active {
+  background-color: #5b6eae;
+}
+.btn-link {
+  display: block;
+  padding-left: 0;
+  padding-right: 0;
+  color: #7289da;
+  width: auto;
+  height: auto;
+  padding: 2px 0;
+}
+.btn-link:hover div {
+  background-image: linear-gradient(
+    0deg,
+    transparent,
+    transparent 1px,
+    #7289da 0,
+    #7289da 2px,
+    transparent 0
+  );
+  cursor: pointer;
+}
+.subtitle {
+  color: #72767d;
+  font-size: 18px;
+  line-height: 22px;
+}
+
+.need-account {
+  font-size: 14px;
+  line-height: 16px;
+}
+.btn-small-text {
+  color: #7289da;
+  display: inline-block;
+  margin-left: 4px;
+  margin-bottom: 0;
+  padding: 0;
+}
+.spec {
+  padding-left: 4px;
+  padding-right: 4px;
+}
+.error-text {
+  opacity: 0;
+  font-style: italic;
+  text-transform: none;
+  font-size: 12px;
+  font-weight: 400;
+}
+
+.error .error-text {
+  opacity: 1;
+}

@@ -1,0 +1,36 @@
+@import "./breakpoints";
+@mixin sm {
+  @media (min-width: #{$screen-sm-min}) {
+    @content;
+  }
+}
+@mixin sm-max {
+  @media (max-width: #{$screen-sm-min}) {
+    @content;
+  }
+}
+@mixin sm-e-max {
+  @media (max-width: #{$screen-sm-e-max}) {
+    @content;
+  }
+}
+// Medium devices
+@mixin md {
+  @media (min-width: #{$screen-md-min}) {
+    @content;
+  }
+}
+
+// Large devices
+@mixin lg {
+  @media (min-width: #{$screen-lg-min}) {
+    @content;
+  }
+}
+
+// Extra large devices
+@mixin xl {
+  @media (min-width: #{$screen-xl-min}) {
+    @content;
+  }
+}
