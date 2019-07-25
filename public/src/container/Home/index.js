@@ -6,11 +6,8 @@ import { remove } from "../../redux/actions/user";
 class Home extends Component {
   state = { user: null };
   componentDidMount() {
-    const { user } = this.props;
-    this.setState({ user });
-    console.log(user);
+    console.log(this.props);
   }
-  componentWillReceiveProps() {}
   render() {
     return (
       <div>
@@ -21,11 +18,9 @@ class Home extends Component {
     );
   }
 }
-const mapStore = state => {
-  return {
-    user: state.user
-  };
-};
+const mapStore = state => ({
+  user: state.user
+});
 export default connect(
   mapStore,
   { remove }

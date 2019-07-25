@@ -1,9 +1,7 @@
 import { SAVE_USER, REMOVE_USER } from "./types";
 
 export const save = data => {
-  data.token
-    ? localStorage.setItem("token", data.token)
-    : console.log("Saving User Data..");
+  data.token ? localStorage.setItem("token", data.token) : console.log("Token");
   return {
     type: SAVE_USER,
     payload: data.user
@@ -25,7 +23,7 @@ export const load = () => {
         .then(resp => resp.json())
         .then(data => {
           if (data.msg) {
-            console.log(data.msg);
+            console.warn(data.msg);
             localStorage.removeItem("token");
           } else {
             dispatch(save(data));

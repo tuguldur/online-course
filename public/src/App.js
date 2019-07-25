@@ -5,7 +5,7 @@ import { Login, Register, Home, Instructor } from "./container";
 import { Navbar } from "./component";
 import { BrowserRouter as Router, Route } from "react-router-dom";
 import { connect } from "react-redux";
-
+import { load } from "./redux/actions/user";
 class App extends Component {
   constructor(props) {
     super(props);
@@ -21,6 +21,7 @@ class App extends Component {
     buttons.forEach(button => {
       new MDCRipple(button);
     });
+    this.props.load();
   }
   render() {
     return (
@@ -36,8 +37,7 @@ class App extends Component {
     );
   }
 }
-
 export default connect(
   null,
-  null
+  { load }
 )(App);

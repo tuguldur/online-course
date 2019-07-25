@@ -35,14 +35,12 @@ class Navbar extends Component {
     backgroundImage: `url(${this.state.avatar})`
   };
   show = () => {
-    console.log("s");
     const search = document.querySelector(".searh-input");
     const searchContainer = document.querySelector(".search-container");
     searchContainer.classList.add("show");
     search.focus();
   };
   profile = () => {
-    console.log("Menu will open now..");
     const menu = new MDCMenuSurface(document.querySelector("#profile-menu"));
     menu.open();
   };
@@ -124,7 +122,7 @@ class Navbar extends Component {
                         <span style={this.avatarStyle} />
                       </div>
                       <div className="mdc-menu-surface" id="profile-menu">
-                        <span>bitch</span>
+                        <span>menu</span>
                       </div>
                     </div>
                   </div>

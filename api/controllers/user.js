@@ -58,7 +58,7 @@ exports.login = function(req, res) {
         { id: user.id },
         config.get("jwtSecret"),
         {
-          expiresIn: 3600 //3600 seconds
+          expiresIn: 36000 // 1 hour
         },
         (err, token) => {
           if (err) throw err;
