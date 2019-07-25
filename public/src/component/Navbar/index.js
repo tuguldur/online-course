@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
-import "./import.css";
+import { MDCMenuSurface } from "@material/menu-surface";
 import "./style.scss";
 class Navbar extends Component {
   state = {
@@ -40,6 +40,11 @@ class Navbar extends Component {
     const searchContainer = document.querySelector(".search-container");
     searchContainer.classList.add("show");
     search.focus();
+  };
+  profile = () => {
+    console.log("Menu will open now..");
+    const menu = new MDCMenuSurface(document.querySelector("#profile-menu"));
+    menu.open();
   };
   render() {
     const { search } = this.state;
@@ -114,8 +119,13 @@ class Navbar extends Component {
               {token ? (
                 <div className="avatar-container">
                   <div className="p-relative avatar-image">
-                    <div className="avatar">
-                      <span style={this.avatarStyle} />
+                    <div className="mdc-menu-surface--anchor">
+                      <div className="avatar" onClick={this.profile}>
+                        <span style={this.avatarStyle} />
+                      </div>
+                      <div className="mdc-menu-surface" id="profile-menu">
+                        <span>bitch</span>
+                      </div>
                     </div>
                   </div>
                 </div>

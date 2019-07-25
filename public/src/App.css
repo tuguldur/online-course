@@ -1,3 +1,10 @@
+:root {
+  --mdc-theme-primary: #000;
+}
+@import url("~@material\top-app-bar\dist\mdc.top-app-bar.min.css");
+@import url("~@material\icon-button\dist\mdc.icon-button.min.css");
+@import url("~@material\button\dist\mdc.button.min.css");
+@import url("~@material\menu-surface\dist\mdc.menu-surface.min.css");
 @font-face {
   font-family: Whitney;
   font-weight: 300;
