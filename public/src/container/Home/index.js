@@ -2,12 +2,8 @@ import React, { Component } from "react";
 import "./style.css";
 import { connect } from "react-redux";
 // import { Link } from "react-router-dom";
-import { remove } from "../../redux/actions/user";
 class Home extends Component {
   state = { user: null };
-  componentDidMount() {
-    console.log(this.props);
-  }
   render() {
     return (
       <div>
@@ -23,5 +19,5 @@ const mapStore = state => ({
 });
 export default connect(
   mapStore,
-  { remove }
+  null
 )(Home);

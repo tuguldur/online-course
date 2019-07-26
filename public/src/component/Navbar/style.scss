@@ -188,3 +188,16 @@
     display: none;
   }
 }
+.dev-list .mdc-list-item {
+  height: 36px;
+}
+.nav-info {
+  margin-top: 8px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  color: #29303b;
+  font-size: 15px;
+  position: relative;
+  padding: 5px 16px;
+}

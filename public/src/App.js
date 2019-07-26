@@ -5,7 +5,7 @@ import { Login, Register, Home, Instructor } from "./container";
 import { Navbar } from "./component";
 import { BrowserRouter as Router, Route } from "react-router-dom";
 import { connect } from "react-redux";
-import { load } from "./redux/actions/user";
+// import { load } from "./redux/actions/user";
 class App extends Component {
   constructor(props) {
     super(props);
@@ -13,15 +13,10 @@ class App extends Component {
   }
 
   componentDidMount() {
-    const buttons = document.querySelectorAll(".mdc-button");
+    const ripples = document.querySelectorAll(".mdc-button,.mdc-list-item");
     const icons = document.querySelectorAll(".mdc-icon-button");
-    icons.forEach(icon => {
-      new MDCRipple(icon).unbounded = true;
-    });
-    buttons.forEach(button => {
-      new MDCRipple(button);
-    });
-    this.props.load();
+    icons.forEach(icon => (new MDCRipple(icon).unbounded = true));
+    ripples.forEach(ripple => new MDCRipple(ripple));
   }
   render() {
     return (
@@ -39,5 +34,5 @@ class App extends Component {
 }
 export default connect(
   null,
-  { load }
+  null
 )(App);

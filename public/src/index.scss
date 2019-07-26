@@ -1,4 +1,5 @@
 @import "./assets/font";
+@import url("https://fonts.googleapis.com/css?family=Roboto&display=swap");
 /* clears the 'X' from Internet Explorer */
 input[type="search"]::-ms-clear {
   display: none;
@@ -25,7 +26,6 @@ body {
   -moz-osx-font-smoothing: grayscale;
   font-family: Whitney, Helvetica Neue, Helvetica, Arial, sans-serif;
 }
-::placeholder,
 body,
 button,
 input,
@@ -111,6 +111,9 @@ var {
   font-family: inherit;
   font-size: 100%;
   vertical-align: baseline;
+}
+span {
+  font-family: "Roboto", sans-serif;
 }
 .hidden {
   display: none !important;

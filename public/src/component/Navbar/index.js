@@ -1,17 +1,19 @@
 import React, { Component } from "react";
+import { connect } from "react-redux";
 import { Link } from "react-router-dom";
 import { MDCMenuSurface } from "@material/menu-surface";
+import { load, remove } from "../../redux/actions/user";
 import "./style.scss";
 class Navbar extends Component {
   state = {
     search: "",
+    user: [],
     avatar:
       "https://lh3.googleusercontent.com/-FThbTS-wmx8/AAAAAAAAAAI/AAAAAAAAAAA/ACHi3rf46rjWVcYKAUIE-QGgeawdHqQB2Q.CMID/s32-c/photo.jpg"
   };
-  componentDidUpdate() {
-    // console.log(this.state.search);
-  }
   componentDidMount() {
+    const user = this.props.data.user;
+    const token = localStorage.token;
     const search = document.querySelector(".searh-input");
     const searchContainer = document.querySelector(".search");
     const searchC = document.querySelector(".search-container");
@@ -23,7 +25,14 @@ class Navbar extends Component {
       searchContainer.classList.remove("focused");
       searchC.classList.remove("show");
     });
+    token
+      ? this.props.load().then(() => {
+          console.log(user);
+          this.setState({ user: user });
+        })
+      : console.log("no user");
   }
+
   search = e => {
     var value = e.target.value;
     this.setState({ search: value });
@@ -45,7 +54,7 @@ class Navbar extends Component {
     menu.open();
   };
   render() {
-    const { search } = this.state;
+    const { search, user } = this.state;
     const token = localStorage.token;
     return (
       <header className="mdc-top-app-bar dev-nav" id="header">
@@ -122,7 +131,27 @@ class Navbar extends Component {
                         <span style={this.avatarStyle} />
                       </div>
                       <div className="mdc-menu-surface" id="profile-menu">
-                        <span>menu</span>
+                        <div className="nav-info">
+                          <span className="fx">
+                            <span className="text-midnight ellipsis">
+                              {/* {user.username} */}
+                            </span>
+                            <span className="a11 text-midnight-lighter ellipsis">
+                              {/* {user.email} */}
+                            </span>
+                          </span>
+                        </div>
+                        <ul className="mdc-list dev-list">
+                          <li className="mdc-list-item" tabIndex="0">
+                            <span className="mdc-list-item__text">Account</span>
+                          </li>
+                          <li
+                            className="mdc-list-item"
+                            onClick={() => this.props.remove()}
+                          >
+                            <span className="mdc-list-item__text">Log out</span>
+                          </li>
+                        </ul>
                       </div>
                     </div>
                   </div>
@@ -141,5 +170,10 @@ class Navbar extends Component {
     );
   }
 }
-
-export default Navbar;
+const mapStore = state => ({
+  data: state.user
+});
+export default connect(
+  mapStore,
+  { load, remove }
+)(Navbar);
