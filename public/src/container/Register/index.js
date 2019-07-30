@@ -68,7 +68,7 @@ class Register extends Component {
         <div id="form-container">
           <form className="register-from form-auth" onSubmit={this.submit}>
             <div className="form-center">
-              <div className="form-title font-white">Create an account</div>
+              <div className="form-title">Create an account</div>
               <div className="form-input mt-20">
                 <div className={`mb-20 ${email_error ? "error" : ""}`}>
                   <h5 className="input-title">

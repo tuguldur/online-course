@@ -1,6 +1,7 @@
 import { SAVE_USER, REMOVE_USER } from "../actions/types";
 const initial_state = {
-  user: null
+  user: null,
+  loading: true
 };
 export default function user(state = initial_state, action) {
   switch (action.type) {
@@ -8,7 +9,8 @@ export default function user(state = initial_state, action) {
       // console.log(action.payload);
       return {
         ...state,
-        user: action.payload
+        user: action.payload,
+        loading: false
       };
     case REMOVE_USER:
       return {

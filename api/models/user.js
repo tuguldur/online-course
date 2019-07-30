@@ -18,7 +18,7 @@ const userSchema = new Schema({
   },
   avatar: {
     type: String,
-    default: false
+    default: null
   },
   verified: {
     type: Boolean,

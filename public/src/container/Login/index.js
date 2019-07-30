@@ -55,7 +55,7 @@ class Login extends Component {
         <div id="form-container">
           <form className="register-from form-auth" onSubmit={this.submit}>
             <div className="form-center">
-              <div className="form-title font-white">Welcome back!</div>
+              <div className="form-title">Welcome back!</div>
               <div className="subtitle">We're so excited to see you again!</div>
               <div className="form-input mt-20">
                 <div className={`mb-20 ${email_error ? "error" : ""}`}>

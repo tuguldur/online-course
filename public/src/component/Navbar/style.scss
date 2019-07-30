@@ -161,7 +161,6 @@
   flex: 0 1 auto;
 }
 .avatar {
-  padding: 4px;
   span {
     background-size: 32px 32px;
     border-radius: 50%;
@@ -172,11 +171,6 @@
     height: 32px;
     width: 32px;
     z-index: 0;
-  }
-  &:hover {
-    background-color: rgba(60, 64, 67, 0.08);
-    border-radius: 50%;
-    cursor: pointer;
   }
 }
 .user-button {
@@ -200,4 +194,18 @@
   font-size: 15px;
   position: relative;
   padding: 5px 16px;
+}
+.data-username {
+  font-size: 18px;
+}
+.has-avatar {
+  padding: 8px;
+  i:first-child {
+    display: none;
+  }
+}
+.avatar-button {
+  div.avatar {
+    display: none;
+  }
 }
