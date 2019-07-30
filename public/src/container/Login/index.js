@@ -1,6 +1,8 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
 import { save } from "../../redux/actions/user";
+import { error } from "../../redux/actions/main";
+
 import "./style.css";
 class Login extends Component {
   constructor(props) {
@@ -43,9 +45,7 @@ class Login extends Component {
           window.location.replace("/");
         } else console.warn("Authentication Failed!");
       })
-      .catch(err => {
-        // console.log(err);
-      });
+      .catch(err => this.props.error("Something went wrong. but we're on it."));
   };
   render() {
     const { email_error, password_error } = this.state;
@@ -128,5 +128,5 @@ const mapStore = state => {
 
 export default connect(
   mapStore,
-  { save }
+  { save, error }
 )(Login);

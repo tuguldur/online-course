@@ -1,4 +1,6 @@
 import React, { Component } from "react";
+import { connect } from "react-redux";
+import { error } from "../../redux/actions/main";
 import "./style.css";
 class Register extends Component {
   constructor(props) {
@@ -16,7 +18,6 @@ class Register extends Component {
     const token = localStorage.token;
     token ? this.props.history.push("/") : console.log("you can go");
     const header = document.querySelector(".dev-nav");
-    //header.style.display = "none";
     console.log(header);
   }
   email = evt => {
@@ -57,9 +58,7 @@ class Register extends Component {
         if (response.msg) this.props.history.push("/login");
         else console.warn("Registration Failed!");
       })
-      .catch(err => {
-        // console.log(err);
-      });
+      .catch(err => this.props.error("Something went wrong. but we're on it."));
   };
   render() {
     const { email_error, username_error, password_error } = this.state;
@@ -144,4 +143,7 @@ class Register extends Component {
   }
 }
 
-export default Register;
+export default connect(
+  null,
+  { error }
+)(Register);

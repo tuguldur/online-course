@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import { MDCRipple } from "@material/ripple";
 import "./App.css";
 import { Login, Register, Home, Instructor } from "./container";
-import { Navbar } from "./component";
+import { Navbar, SnackbarNotification } from "./component";
 import { BrowserRouter as Router, Route } from "react-router-dom";
 import { connect } from "react-redux";
 // import { load } from "./redux/actions/user";
@@ -11,7 +11,6 @@ class App extends Component {
     super(props);
     this.state = {};
   }
-
   componentDidMount() {
     const ripples = document.querySelectorAll(".mdc-button,.mdc-list-item");
     const icons = document.querySelectorAll(".mdc-icon-button");
@@ -27,6 +26,7 @@ class App extends Component {
           <Route path="/login" component={Login} />
           <Route path="/register" component={Register} />
           <Route path="/instructor" component={Instructor} />
+          <SnackbarNotification />
         </div>
       </Router>
     );

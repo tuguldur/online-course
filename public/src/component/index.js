@@ -1,2 +1,3 @@
 import Navbar from "./Navbar";
-export { Navbar };
+import SnackbarNotification from "./SnackbarNotification";
+export { Navbar, SnackbarNotification };

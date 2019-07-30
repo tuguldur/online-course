@@ -6,6 +6,7 @@
 @import url("~@material\button\dist\mdc.button.min.css");
 @import url("~@material\menu-surface\dist\mdc.menu-surface.min.css");
 @import url("~@material\list\dist\mdc.list.min.css");
+@import url("~@material\snackbar\dist\mdc.snackbar.min.css");
 @font-face {
   font-family: Whitney;
   font-weight: 300;

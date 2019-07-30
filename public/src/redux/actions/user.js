@@ -1,5 +1,5 @@
 import { SAVE_USER, REMOVE_USER } from "./types";
-
+import { error } from "./main";
 export const save = data => {
   data.token ? localStorage.setItem("token", data.token) : console.log("Token");
   return {
@@ -20,7 +20,11 @@ export const load = () => {
           Authorization: `Bearer ${token}`
         }
       })
-        .then(resp => resp.json())
+        .then(resp => {
+          if (resp.status === 500)
+            dispatch(error("Something went wrong. but we're on it."));
+          resp.json();
+        })
         .then(data => {
           if (data.msg) {
             console.warn(data.msg);
@@ -28,7 +32,8 @@ export const load = () => {
           } else {
             dispatch(save(data));
           }
-        });
+        })
+        .catch(() => dispatch(error("Something went wrong. but we're on it.")));
     }
   };
 };

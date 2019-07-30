@@ -44,8 +44,8 @@ class Navbar extends Component {
     menu.open();
   };
   componentDidUpdate(oldProps) {
-    const data = this.props.data.user;
-    if (oldProps.data.user !== data) {
+    const data = this.props.data;
+    if (oldProps.data !== data) {
       this.setState({ user: data });
     }
   }
@@ -176,8 +176,7 @@ class Navbar extends Component {
 }
 const mapStore = state => {
   return {
-    data: state.user,
-    loading: state.loading
+    data: state.user.user
   };
 };
 export default connect(
