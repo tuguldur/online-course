@@ -23,7 +23,13 @@ export const load = () => {
         .then(resp => {
           if (resp.status === 500)
             dispatch(error("Something went wrong. but we're on it."));
-          resp.json();
+          if (resp.status === 400)
+            dispatch(
+              error(
+                "Token is invalid or expired. Please reset token and sign-in again"
+              )
+            );
+          return resp.json();
         })
         .then(data => {
           if (data.msg) {
@@ -32,8 +38,7 @@ export const load = () => {
           } else {
             dispatch(save(data));
           }
-        })
-        .catch(() => dispatch(error("Something went wrong. but we're on it.")));
+        });
     }
   };
 };
