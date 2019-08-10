@@ -5,5 +5,4 @@ class Instructor extends Component {
     return <div>instructor</div>;
   }
 }
-
 export default Instructor;
